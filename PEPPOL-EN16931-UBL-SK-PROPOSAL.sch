@@ -545,7 +545,7 @@ Last update: 2025 November release 3.0.20.
       <assert id="SK-R-13" flag="fatal" test="exists(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:Percent) and not(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:Percent='')">
         For SK suppliers VAT category rate (sadzba DPH) is mandatory.
       </assert>
-      <assert id="SK-14" flag="fatal" test="not(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:ID = 'E' 
+      <assert id="SK-R-14" flag="fatal" test="not(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:ID = 'E' 
                   or cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:ID = 'G' 
                   or cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:ID = 'O' 
                   or cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:ID = 'K' 
