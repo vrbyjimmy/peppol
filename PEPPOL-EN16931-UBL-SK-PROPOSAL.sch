@@ -506,7 +506,7 @@ Last update: 2025 November release 3.0.20.
       value="concat(ubl-creditnote:CreditNote/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode, ubl-invoice:Invoice/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode)" />    
     <rule
       context="ubl-creditnote:CreditNote[$SKSupplierCountry = 'SK'] | ubl-invoice:Invoice[$SKSupplierCountry = 'SK']">
-      <assert id="SK-R-01" flag="fatal" test="exists(cbc:TaxPointDate) and not(cbc:TaxPointDate='')">
+      <assert id="SK-R-01" flag="fatal" test="exists(cbc:TaxPointDate) and not(normalize-space(cbc:TaxPointDate)='')">
           For SK suppliers tax point date (dátum zdaniteľného plnenia) [BT-7] is mandatory (§74 ods. 1 písm. d) zákona 222/2004 Z.z.).
       </assert>     
       <assert id="SK-R-03" flag="fatal" test="exists(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID) and not(normalize-space(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID)='')">
