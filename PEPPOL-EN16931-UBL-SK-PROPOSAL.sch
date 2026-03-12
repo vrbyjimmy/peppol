@@ -506,43 +506,43 @@ Last update: 2025 November release 3.0.20.
       value="concat(ubl-creditnote:CreditNote/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode, ubl-invoice:Invoice/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode)" />    
     <rule
       context="ubl-creditnote:CreditNote[$SKSupplierCountry = 'SK'] | ubl-invoice:Invoice[$SKSupplierCountry = 'SK']">
-      <assert id="SK-R-01" flag="fatal" test="exists(cbc:TaxPointDate) and not(normalize-space(cbc:TaxPointDate)='')">
+      <assert id="SK-R-001" flag="fatal" test="exists(cbc:TaxPointDate) and not(normalize-space(cbc:TaxPointDate)='')">
           For SK suppliers tax point date (dátum zdaniteľného plnenia) [BT-7] is mandatory (§74 ods. 1 písm. d) zákona 222/2004 Z.z.).
       </assert>     
-      <assert id="SK-R-03" flag="fatal" test="exists(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID) and not(normalize-space(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID)='')">
+      <assert id="SK-R-003" flag="fatal" test="exists(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID) and not(normalize-space(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID)='')">
           For SK suppliers seller legal registration identifier (IČO) [BT-30] is mandatory.
       </assert>
-      <assert id="SK-R-04" flag="fatal" test="exists(cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme[cac:TaxScheme/cbc:ID = 'VAT']/cbc:CompanyID) and not(normalize-space(cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme[cac:TaxScheme/cbc:ID = 'VAT']/cbc:CompanyID)='')">
+      <assert id="SK-R-004" flag="fatal" test="exists(cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme[cac:TaxScheme/cbc:ID = 'VAT']/cbc:CompanyID) and not(normalize-space(cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme[cac:TaxScheme/cbc:ID = 'VAT']/cbc:CompanyID)='')">
           For SK suppliers seller VAT identifier (IČ DPH) [BT-31] is mandatory (§74 ods. 1 písm. b) zákona 222/2004 Z.z.).
       </assert>
-      <assert id="SK-R-05" flag="fatal" test="exists(cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:StreetName) and not(normalize-space(cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:StreetName)='')">
+      <assert id="SK-R-005" flag="fatal" test="exists(cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:StreetName) and not(normalize-space(cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:StreetName)='')">
           For SK suppliers seller address line 1 (ulica) [BT-35] is mandatory (§74 ods. 1 písm. a) zákona 222/2004 Z.z.).
       </assert>
-      <assert id="SK-R-06" flag="fatal" test="exists(cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:CityName) and not(normalize-space(cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:CityName)='')">
+      <assert id="SK-R-006" flag="fatal" test="exists(cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:CityName) and not(normalize-space(cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:CityName)='')">
           For SK suppliers seller city (mesto) [BT-37] is mandatory (§74 ods. 1 písm. a) zákona 222/2004 Z.z.).
       </assert>
-      <assert id="SK-R-07" flag="fatal" test="exists(cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:PostalZone) and not(normalize-space(cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:PostalZone)='')">
+      <assert id="SK-R-007" flag="fatal" test="exists(cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:PostalZone) and not(normalize-space(cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:PostalZone)='')">
           For SK suppliers seller post code (PSČ) [BT-38] is mandatory (§74 ods. 1 písm. a) zákona 222/2004 Z.z.).
       </assert>
-      <assert id="SK-R-08" flag="warning" test="exists(cac:AccountingCustomerParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID) and not(normalize-space(cac:AccountingCustomerParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID)='')">
+      <assert id="SK-R-008" flag="warning" test="exists(cac:AccountingCustomerParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID) and not(normalize-space(cac:AccountingCustomerParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID)='')">
           For SK suppliers buyer VAT identifier (IČ DPH kupujúceho) [BT-48] is mandatory.
       </assert>
-      <assert id="SK-R-09" flag="fatal" test="exists(cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:StreetName) and not(normalize-space(cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:StreetName)='')">
+      <assert id="SK-R-009" flag="fatal" test="exists(cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:StreetName) and not(normalize-space(cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:StreetName)='')">
           For SK suppliers buyer address line 1 (ulica kupujúceho) [BT-50] is mandatory (§74 ods. 1 písm. b) zákona 222/2004 Z.z.).
       </assert>
-      <assert id="SK-R-10" flag="fatal" test="exists(cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:CityName) and not(normalize-space(cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:CityName)='')">
+      <assert id="SK-R-010" flag="fatal" test="exists(cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:CityName) and not(normalize-space(cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:CityName)='')">
           For SK suppliers buyer city (mesto kupujúceho) [BT-52] is mandatory (§74 ods. 1 písm. b) zákona 222/2004 Z.z.).
       </assert>
-      <assert id="SK-R-11" flag="fatal" test="exists(cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:PostalZone) and not(normalize-space(cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:PostalZone)='')">
+      <assert id="SK-R-011" flag="fatal" test="exists(cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:PostalZone) and not(normalize-space(cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:PostalZone)='')">
           For SK suppliers buyer post code (PSČ kupujúceho) [BT-53] is mandatory (§74 ods. 1 písm. b) zákona 222/2004 Z.z.).
       </assert>
-      <assert id="SK-R-12" flag="fatal" test="exists(cac:TaxTotal/cbc:TaxAmount) and not(normalize-space(cac:TaxTotal/cbc:TaxAmount)='')">
+      <assert id="SK-R-012" flag="fatal" test="exists(cac:TaxTotal/cbc:TaxAmount) and not(normalize-space(cac:TaxTotal/cbc:TaxAmount)='')">
           For SK suppliers invoice total VAT amount (celková suma DPH) [BT-110] is mandatory.
       </assert>
-      <assert id="SK-R-13" flag="fatal" test="exists(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:Percent) and not(normalize-space(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:Percent)='')">
+      <assert id="SK-R-013" flag="fatal" test="exists(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:Percent) and not(normalize-space(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:Percent)='')">
           For SK suppliers VAT category rate (sadzba DPH) [BT-119] is mandatory (§74 ods. 1 písm. i) zákona 222/2004 Z.z.).
       </assert>
-      <assert id="SK-R-14" flag="fatal" test="not(normalize-space(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:ID) = 'E' 
+      <assert id="SK-R-014" flag="fatal" test="not(normalize-space(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:ID) = 'E' 
                   or normalize-space(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:ID) = 'G' 
                   or normalize-space(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:ID) = 'O' 
                   or normalize-space(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:ID) = 'K' 
@@ -553,33 +553,33 @@ Last update: 2025 November release 3.0.20.
       </assert>    
     </rule>
     <rule context="ubl-invoice:Invoice[$SKSupplierCountry = 'SK']">
-        <assert id="SK-R-02" flag="fatal" test="exists(cbc:DueDate) and not(normalize-space(cbc:DueDate)='')">
+        <assert id="SK-R-002" flag="fatal" test="exists(cbc:DueDate) and not(normalize-space(cbc:DueDate)='')">
             For SK suppliers payment due date (dátum splatnosti) [BT-9] is mandatory.
         </assert>
     </rule>   
     <rule context="cac:InvoiceLine/cac:Price/cac:AllowanceCharge[$SKSupplierCountry = 'SK'] | cac:CreditNoteLine/cac:Price/cac:AllowanceCharge[$SupplierCountry = 'SK']">
-      <assert id="SK-R-15" flag="fatal" test="exists(cbc:BaseAmount) and not(normalize-space(cbc:BaseAmount)='')">
+      <assert id="SK-R-015" flag="fatal" test="exists(cbc:BaseAmount) and not(normalize-space(cbc:BaseAmount)='')">
           For SK suppliers item gross price (cena za položku brutto) [BT-148] is mandatory when a price discount is applied.
       </assert>
     </rule>
     <rule context="(ubl-invoice:Invoice[$SKSupplierCountry = 'SK'] | ubl-creditnote:CreditNote[$SKSupplierCountry = 'SK'])/cac:TaxRepresentativeParty/cac:PostalAddress">
-      <assert id="SK-R-16" flag="fatal" test="exists(cbc:StreetName) and not(normalize-space(cbc:StreetName)='')">
+      <assert id="SK-R-016" flag="fatal" test="exists(cbc:StreetName) and not(normalize-space(cbc:StreetName)='')">
           For SK suppliers Tax representative address line 1 (ulica daňového zástupcu) [BT-64] is mandatory when tax representative (BG-11) is present (§74 ods. 1 písm. a) zákona 222/2004 Z.z.).
       </assert>
-      <assert id="SK-R-17" flag="fatal" test="exists(cbc:CityName) and not(normalize-space(cbc:CityName)='')">
+      <assert id="SK-R-017" flag="fatal" test="exists(cbc:CityName) and not(normalize-space(cbc:CityName)='')">
           For SK suppliers Tax representative city (mesto daňového zástupcu) [BT-66] is mandatory when tax representative (BG-11) is present (§74 ods. 1 písm. a) zákona 222/2004 Z.z.).
       </assert>
-      <assert id="SK-R-18" flag="fatal" test="exists(cbc:PostalZone) and not(normalize-space(cbc:PostalZone)='')">
+      <assert id="SK-R-018" flag="fatal" test="exists(cbc:PostalZone) and not(normalize-space(cbc:PostalZone)='')">
           For SK suppliers Tax representative post code (PSČ daňového zástupcu) [BT-67] is mandatory when tax representative (BG-11) is present (§74 ods. 1 písm. a) zákona 222/2004 Z.z.).
       </assert>
     </rule>
     <rule context="ubl-creditnote:CreditNote[$SKSupplierCountry = 'SK'][cbc:CreditNoteTypeCode = '381']">
-      <assert id="SK-R-19" flag="fatal" test="exists(cac:BillingReference/cac:InvoiceDocumentReference/cbc:ID) and not(normalize-space(cac:BillingReference/cac:InvoiceDocumentReference/cbc:ID)='') ">
+      <assert id="SK-R-019" flag="fatal" test="exists(cac:BillingReference/cac:InvoiceDocumentReference/cbc:ID) and not(normalize-space(cac:BillingReference/cac:InvoiceDocumentReference/cbc:ID)='') ">
           For SK suppliers preceding invoice reference (referencia na pôvodnú faktúru) [BT-25] is mandatory for credit notes (type 381).
       </assert>
     </rule>
     <rule context="ubl-creditnote:CreditNote[$SKSupplierCountry = 'SK']">
-      <assert id="SK-R-20" flag="fatal" test="(exists(cbc:DueDate) and not(normalize-space(cbc:DueDate)='')) or (exists(cac:PaymentMeans/cbc:PaymentDueDate) and not(normalize-space(cac:PaymentMeans/cbc:PaymentDueDate)=''))">
+      <assert id="SK-R-020" flag="fatal" test="(exists(cbc:DueDate) and not(normalize-space(cbc:DueDate)='')) or (exists(cac:PaymentMeans/cbc:PaymentDueDate) and not(normalize-space(cac:PaymentMeans/cbc:PaymentDueDate)=''))">
         For SK suppliers payment due date (dátum splatnosti) [BT-9] is mandatory.
       </assert>
     </rule>  
