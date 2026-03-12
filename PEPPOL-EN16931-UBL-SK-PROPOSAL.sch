@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
 This schematron uses business terms defined the CEN/EN16931-1 and is reproduced with permission
 from CEN. CEN bears no liability from the use of the content and implementation of this schematron
@@ -545,7 +545,7 @@ Last update: 2025 November release 3.0.20.
       <assert id="SK-R-13" flag="fatal" test="exists(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:Percent) and not(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:Percent='')">
         For SK suppliers VAT category rate (sadzba DPH) is mandatory.
       </assert>
-      <assert id="SK-R-14" flag="fatal" test="not(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:ID = 'E' 
+      <assert id="SK-14" flag="fatal" test="not(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:ID = 'E' 
                   or cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:ID = 'G' 
                   or cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:ID = 'O' 
                   or cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:ID = 'K' 
