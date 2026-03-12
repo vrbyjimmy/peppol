@@ -553,7 +553,7 @@ Last update: 2025 November release 3.0.20.
       </assert>    
     </rule>
     <rule context="ubl-invoice:Invoice[$SKSupplierCountry = 'SK']">
-        <assert id="SK-R-02" flag="fatal" test="exists(cbc:DueDate) and not(cbc:DueDate='')">
+        <assert id="SK-R-02" flag="fatal" test="exists(cbc:DueDate) and not(normalize-space(cbc:DueDate)='')">
             For SK suppliers payment due date (dátum splatnosti) [BT-9] is mandatory.
         </assert>
     </rule>   
@@ -579,7 +579,7 @@ Last update: 2025 November release 3.0.20.
       </assert>
     </rule>
     <rule context="ubl-creditnote:CreditNote[$SKSupplierCountry = 'SK']">
-      <assert id="SK-R-20" flag="fatal" test="(exists(cbc:DueDate) and not(cbc:DueDate='')) or (exists(cac:PaymentMeans/cbc:PaymentDueDate) and not(cac:PaymentMeans/cbc:PaymentDueDate=''))">
+      <assert id="SK-R-20" flag="fatal" test="(exists(cbc:DueDate) and not(normalize-space(cbc:DueDate)='')) or (exists(cac:PaymentMeans/cbc:PaymentDueDate) and not(normalize-space(cac:PaymentMeans/cbc:PaymentDueDate)=''))">
         For SK suppliers payment due date (dátum splatnosti) [BT-9] is mandatory.
       </assert>
     </rule>  
