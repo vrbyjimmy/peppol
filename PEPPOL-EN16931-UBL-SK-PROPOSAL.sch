@@ -505,7 +505,7 @@ Last update: 2025 November release 3.0.20.
     <let name="SKSupplierCountry"
       value="concat(ubl-creditnote:CreditNote/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode, ubl-invoice:Invoice/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode)" />    
     <rule
-      context="ubl-creditnote:CreditNote[SKSupplierCountry = 'SK'] | ubl-invoice:Invoice[SKSupplierCountry = 'SK']">
+      context="ubl-creditnote:CreditNote[$SKSupplierCountry = 'SK'] | ubl-invoice:Invoice[$SKSupplierCountry = 'SK']">
       <assert id="SK-R-01" flag="fatal" test="exists(cbc:TaxPointDate) and not(cbc:TaxPointDate='')">
         For SK suppliers tax point date (dátum zdaniteľného plnenia) is mandatory.
       </assert>
@@ -555,12 +555,12 @@ Last update: 2025 November release 3.0.20.
         For SK suppliers VAT exemption reason (dôvod oslobodenia od DPH) is mandatory when tax category is exempt.
       </assert>    
     </rule>
-    <rule context="cac:InvoiceLine/cac:Price/cac:AllowanceCharge[SKSupplierCountry = 'SK'] | cac:CreditNoteLine/cac:Price/cac:AllowanceCharge[$SupplierCountry = 'SK']">
+    <rule context="cac:InvoiceLine/cac:Price/cac:AllowanceCharge[$SKSupplierCountry = 'SK'] | cac:CreditNoteLine/cac:Price/cac:AllowanceCharge[$SupplierCountry = 'SK']">
       <assert id="SK-R-15" flag="fatal" test="exists(cbc:BaseAmount) and not(normalize-space(cbc:BaseAmount)='')">
         For SK suppliers item gross price (cena za položku brutto) is mandatory when a price discount is applied.
       </assert>
     </rule>
-    <rule context="(ubl-invoice:Invoice[SKSupplierCountry = 'SK'] | ubl-creditnote:CreditNote[SKSupplierCountry = 'SK'])/cac:TaxRepresentativeParty/cac:PostalAddress">
+    <rule context="(ubl-invoice:Invoice[$SKSupplierCountry = 'SK'] | ubl-creditnote:CreditNote[$SKSupplierCountry = 'SK'])/cac:TaxRepresentativeParty/cac:PostalAddress">
       <assert id="SK-R-16" flag="fatal" test="exists(cbc:StreetName) and not(normalize-space(cbc:StreetName)='')">
         For SK suppliers Tax representative address line 1 (ulica daňového zástupcu) is mandatory when tax representative (BG-11) is present.
       </assert>
@@ -571,7 +571,7 @@ Last update: 2025 November release 3.0.20.
         For SK suppliers Tax representative post code (PSČ daňového zástupcu) is mandatory when tax representative (BG-11) is present.
       </assert>
     </rule>
-    <rule context="ubl-creditnote:CreditNote[SKSupplierCountry = 'SK'][cbc:CreditNoteTypeCode = '381']">
+    <rule context="ubl-creditnote:CreditNote[$SKSupplierCountry = 'SK'][cbc:CreditNoteTypeCode = '381']">
       <assert id="SK-R-19" flag="fatal" test="exists(cac:BillingReference/cac:InvoiceDocumentReference/cbc:ID) and not(normalize-space(cac:BillingReference/cac:InvoiceDocumentReference/cbc:ID)='') ">
         For SK suppliers preceding invoice reference (referencia na pôvodnú faktúru) is mandatory for credit notes (type 381).
       </assert>
