@@ -509,7 +509,7 @@ Last update: 2025 November release 3.0.20.
       <assert id="SK-R-01" flag="fatal" test="exists(cbc:TaxPointDate) and not(cbc:TaxPointDate='')">
         For SK suppliers tax point date (dátum zdaniteľného plnenia) is mandatory.
       </assert>
-      <assert id="SK-R-02" flag="fatal" test="exists(cbc:DueDate) and not(cbc:DueDate=''">
+      <assert id="SK-R-02" flag="fatal" test="exists(cbc:DueDate) and not(cbc:DueDate='')">
         For SK suppliers payment due date (dátum splatnosti) is mandatory.
       </assert>
       <assert id="SK-R-03" flag="fatal" test="exists(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID) and not(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID='')">
