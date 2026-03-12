@@ -508,10 +508,7 @@ Last update: 2025 November release 3.0.20.
       context="ubl-creditnote:CreditNote[$SKSupplierCountry = 'SK'] | ubl-invoice:Invoice[$SKSupplierCountry = 'SK']">
       <assert id="SK-R-01" flag="fatal" test="exists(cbc:TaxPointDate) and not(cbc:TaxPointDate='')">
           For SK suppliers tax point date (dátum zdaniteľného plnenia) [BT-7] is mandatory (§74 ods. 1 písm. d) zákona 222/2004 Z.z.).
-      </assert>
-      <assert id="SK-R-02" flag="fatal" test="exists(cbc:DueDate) and not(cbc:DueDate='')">
-          For SK suppliers payment due date (dátum splatnosti) [BT-9] is mandatory.
-      </assert>
+      </assert>     
       <assert id="SK-R-03" flag="fatal" test="exists(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID) and not(normalize-space(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID)='')">
           For SK suppliers seller legal registration identifier (IČO) [BT-30] is mandatory.
       </assert>
@@ -555,6 +552,11 @@ Last update: 2025 November release 3.0.20.
           For SK suppliers VAT exemption reason (dôvod oslobodenia od DPH) [BT-120/BT-121] is mandatory when tax category is exempt (§74 ods. 1 písm. j) zákona 222/2004 Z.z.).
       </assert>    
     </rule>
+    <rule context="ubl-invoice:Invoice[$SKSupplierCountry = 'SK']">
+        <assert id="SK-R-02" flag="fatal" test="exists(cbc:DueDate) and not(cbc:DueDate='')">
+            For SK suppliers payment due date (dátum splatnosti) [BT-9] is mandatory.
+        </assert>
+    </rule>   
     <rule context="cac:InvoiceLine/cac:Price/cac:AllowanceCharge[$SKSupplierCountry = 'SK'] | cac:CreditNoteLine/cac:Price/cac:AllowanceCharge[$SupplierCountry = 'SK']">
       <assert id="SK-R-15" flag="fatal" test="exists(cbc:BaseAmount) and not(normalize-space(cbc:BaseAmount)='')">
           For SK suppliers item gross price (cena za položku brutto) [BT-148] is mandatory when a price discount is applied.
@@ -575,7 +577,12 @@ Last update: 2025 November release 3.0.20.
       <assert id="SK-R-19" flag="fatal" test="exists(cac:BillingReference/cac:InvoiceDocumentReference/cbc:ID) and not(normalize-space(cac:BillingReference/cac:InvoiceDocumentReference/cbc:ID)='') ">
           For SK suppliers preceding invoice reference (referencia na pôvodnú faktúru) [BT-25] is mandatory for credit notes (type 381).
       </assert>
-    </rule>    
+    </rule>
+    <rule context="ubl-creditnote:CreditNote[$SKSupplierCountry = 'SK']">
+      <assert id="SK-R-20" flag="fatal" test="(exists(cbc:DueDate) and not(cbc:DueDate='')) or (exists(cac:PaymentMeans/cbc:PaymentDueDate) and not(cac:PaymentMeans/cbc:PaymentDueDate=''))">
+        For SK suppliers payment due date (dátum splatnosti) [BT-9] is mandatory.
+      </assert>
+    </rule>  
   </pattern>
   <pattern>
     <!-- NORWAY -->
