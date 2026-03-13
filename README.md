@@ -6,7 +6,7 @@
 | :--- | :--- | :--- | :--- |
 | **Unconditional** | | (0..1 → 1..1) | |
 | SK-R-001 | BT-7 | TaxPointDate | §74/1/d zák. 222/2004 |
-| SK-R-002 | BT-9 | DueDate | |
+| SK-R-002 | BT-9 | DueDate (for Invoice) | |
 | SK-R-003 | BT-30 | Seller PartyLegalEntity/CompanyID | |
 | SK-R-004 | BT-31 | Seller PartyTaxScheme/CompanyID (VAT) | §74/1/b |
 | SK-R-005 | BT-35 | Seller PostalAddress/StreetName | §74/1/a |
@@ -18,7 +18,7 @@
 | SK-R-011 | BT-53 | Buyer PostalAddress/PostalZone | §74/1/b |
 | SK-R-012 | BT-110 | TaxTotal/TaxAmount | |
 | SK-R-013 | BT-119 | TaxCategory/Percent | §74/1/i |
-| SK-R-020 | BT-9 | DueDate or PaymentMeans/PaymentDueDate | |
+| SK-R-020 | BT-9 | DueDate or PaymentMeans/PaymentDueDate (for CreditNote) | |
 | **Conditional** | | | |
 | SK-R-014 | BT-120/121 | When tax category is E/G/O/K/AE | §74/1/j |
 | SK-R-015 | BT-148 | When price AllowanceCharge exists | |
