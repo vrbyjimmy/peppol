@@ -541,7 +541,7 @@ Last update: 2025 November release 3.0.20.
       </assert>
       <assert id="SK-R-013" flag="fatal" test="exists(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:Percent) and not(normalize-space(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:Percent)='')">
           For SK suppliers VAT category rate (sadzba DPH) [BT-119] is mandatory (§74 ods. 1 písm. i) zákona 222/2004 Z.z.).
-      </assert>
+      </assert>        
       <assert id="SK-R-014" flag="fatal" test="not(normalize-space(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:ID) = 'E' 
                   or normalize-space(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:ID) = 'G' 
                   or normalize-space(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:ID) = 'O' 
@@ -550,7 +550,10 @@ Last update: 2025 November release 3.0.20.
                   or normalize-space(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:TaxExemptionReasonCode) != '' 
                   or normalize-space(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:TaxExemptionReason) != ''">
           For SK suppliers VAT exemption reason (dôvod oslobodenia od DPH) [BT-120/BT-121] is mandatory when tax category is exempt (§74 ods. 1 písm. j) zákona 222/2004 Z.z.).
-      </assert>    
+      </assert>
+      <assert id="SK-R-021" flag="fatal" test="exists(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyLegalForm) and not(normalize-space(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyLegalForm)='')">
+          For SK suppliers company legal form (register právnických osôb) [BT-33] is mandatory.
+      </assert>
     </rule>
     <rule context="ubl-invoice:Invoice[$SKSupplierCountry = 'SK']">
         <assert id="SK-R-002" flag="fatal" test="exists(cbc:DueDate) and not(normalize-space(cbc:DueDate)='')">
