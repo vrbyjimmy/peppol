@@ -19,6 +19,7 @@
 | SK-R-012 | BT-110 | TaxTotal/TaxAmount | |
 | SK-R-013 | BT-119 | TaxCategory/Percent | §74/1/i |
 | SK-R-020 | BT-9 | DueDate or PaymentMeans/PaymentDueDate (for CreditNote) | |
+| SK-R-021 | BT-33 | Seller PartyLegalEntity/CompanyLegalForm | |
 | **Conditional** | | | |
 | SK-R-014 | BT-120/121 | When tax category is E/G/O/K/AE | §74/1/j |
 | SK-R-015 | BT-148 | When price AllowanceCharge exists | |
@@ -80,6 +81,9 @@
                   or normalize-space(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:TaxExemptionReasonCode) != '' 
                   or normalize-space(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:TaxExemptionReason) != ''">
           For SK suppliers VAT exemption reason (dôvod oslobodenia od DPH) [BT-120/BT-121] is mandatory when tax category is exempt (§74 ods. 1 písm. j) zákona 222/2004 Z.z.).
+      </assert>
+      <assert id="SK-R-021" flag="fatal" test="exists(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyLegalForm) and not(normalize-space(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyLegalForm)='')">
+          For SK suppliers company legal form (register právnických osôb) [BT-33] is mandatory.
       </assert>    
     </rule>
     <rule context="ubl-invoice:Invoice[$SKSupplierCountry = 'SK']">
